@@ -153,7 +153,7 @@ ent-v314-013:~ student$
 
 Write down the command that you used to uncompress the file.
 ----------
-
+unzip
 
 
 ==========
@@ -162,8 +162,7 @@ Write down the command that you used to uncompress the file.
 Copy and paste the output below.
 ----------
 
-
-
+-bash: cd: http://foureyes.github.io/mtec1002-spring2014/labs/02/mtec1002-lab-02: No such file or directory
 ==========
 We're going to mess around with archiving and compressing files.  We'll make a directory with a file in it... archive and compress it.... and uncompress it elsewhere.
 ==========
@@ -172,7 +171,11 @@ We're going to mess around with archiving and compressing files.  We'll make a d
 
 Copy and paste the output below.
 ----------
-
+V217-M15:~ Guest$ ls
+Adlm			Downloads		Pictures
+Applications		Library			Public
+Desktop			Movies			mtec1002-lab-02.zip
+Documents		Music			stuff
 
 
 ==========
@@ -185,7 +188,8 @@ List the files in the directory you're currently in (which should be stuff).
 Copy and paste the output below.
 ----------
 
-
+V217-M15:stuff Guest$ ls
+hello.txt
 
 ==========
 18. Go up one directory back into your home directory.  Run the following commands exactly to create a compressed archive of the stuff folder.
@@ -195,14 +199,21 @@ $ tar -cvf stuff.tar stuff
 Copy and paste the output below.
 ----------
 
-
+V217-M15:~ Guest$ tar -cvf stuff.tar stuff
+a stuff
+a stuff/hello.txt
 
 ==========
 19. List the files in the directory you're currently in (which should be home).  
 
 Copy and paste the output below. (It should contain stuff.tar)
 ----------
-
+V217-M15:~ Guest$ ls
+Adlm			Library			mtec1002-lab-02.zip
+Applications		Movies			stuff
+Desktop			Music			stuff.tar
+Documents		Pictures
+Downloads		Public
 
 
 ==========
@@ -212,8 +223,12 @@ gzip stuff.tar
 
 List your files again.... you should have a new file with a .gz extension.  Copy and paste the output of your this below.
 ----------
-
-
+V217-M15:~ Guest$ ls
+Adlm			Library			mtec1002-lab-02.zip
+Applications		Movies			stuff
+Desktop			Music			stuff.tar.gz
+Documents		Pictures
+Downloads		Public
 
 ==========
 21. Move stuff.tar.gz into the lab directory that we downloaded.  We didn't learn this command yet, so just type in exactly as is:
@@ -226,8 +241,8 @@ Change your directory to mtec1002-lab-02.
 
 List the files.  Copy and paste the output below (stuff.tar.gz should be there).
 ----------
-
-
+ Guest$ cd -mtec1002-lab-02
+-bash: cd: -m: invalid option
 ==========
 22. You should be in the lab directory.  Let's uncompress the file.
 
@@ -236,7 +251,8 @@ $ tar -xvf stuff.tar.gz
 List the files.  Copy and paste the output below (the folder, stuff, should be there).
 ----------
 
-
+Guest$ tar -xvf stuff.tar.gz
+tar: Error opening archive: Failed to open 'stuff.tar.gz'
 
 ==========
 23. Go back to your home directory
